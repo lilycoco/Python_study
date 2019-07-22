@@ -26,6 +26,9 @@ while True:
     if 'heisei' in command:
       response = heisei_command(command)
 
+    if 'eto' in command:
+      response = eto_command(command)
+
     if 'choice' in command:
       response = choice_command(command)
 
