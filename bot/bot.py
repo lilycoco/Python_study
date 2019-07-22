@@ -1,6 +1,7 @@
 from def_heisei import heisei_command
 from def_random import choice_command, dice_command
 from def_datetime import today_command, now_command, weekday_command
+from def_eto import eto_command
 
 command_file = open('bot.txt', encoding='utf-8')
 raw_data = command_file.read()
