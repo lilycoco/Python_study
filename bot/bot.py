@@ -17,34 +17,40 @@ for line in lines:
 while True:
   command = input('bot> ')
   response = ''
+  try:
+    for msg in bot_dict:
+      if msg in command:
+        response = bot_dict[msg]
+        break
 
-  for msg in bot_dict:
-    if msg in command:
-      response = bot_dict[msg]
+    if 'heisei' in command:
+      response = heisei_command(command)
+
+    if 'choice' in command:
+      response = choice_command(command)
+
+    if 'dice' in command:
+      response = dice_command()
+
+    if 'today' in command:
+      response = today_command()
+
+    if 'now' in command:
+      response = now_command()
+
+    if 'weekday' in command:
+      response = weekday_command(command)
+
+    if not response:
+      response = 'What??'
+
+    print(response)
+    
+    if 'さよなら' in command:
       break
 
-  if 'heisei' in command:
-    response = heisei_command(command)
+  except Exception as e:
+      print('unexpexted error')
+      print('* errot type:', type(e))
+      print('* detail:', e)
 
-  if 'choice' in command:
-    response = choice_command(command)
-
-  if 'dice' in command:
-    response = dice_command()
-
-  if 'today' in command:
-    response = today_command()
-
-  if 'now' in command:
-    response = now_command()
-
-  if 'weekday' in command:
-    response = weekday_command(command)
-
-  if not response:
-    response = 'What??'
-
-  print(response)
-  
-  if 'さよなら' in command:
-    break
